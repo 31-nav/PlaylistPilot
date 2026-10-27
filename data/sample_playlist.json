@@ -1,0 +1,2321 @@
+{
+  "title": "Mastering Advanced Python & Systems Architecture (105 Lectures)",
+  "source_type": "demo",
+  "source_id": "PL_DEMO_MCA_PYTHON_2026",
+  "source_url": "https://playlistpilot.local/demo/python-masterclass",
+  "description": "Comprehensive MCA-curated 105-video educational playlist designed for demonstration of queue processing, interruption recovery, priority management, and state persistence.",
+  "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+  "item_count": 105,
+  "items": [
+    {
+      "position": 1,
+      "source_id": "demo_vid_001",
+      "title": "#001 - Variables, Data Types, and Type Hinting",
+      "duration_seconds": 903,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 135.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 2,
+      "source_id": "demo_vid_002",
+      "title": "#002 - Control Flow, Loops, and Iteration Idioms",
+      "duration_seconds": 666,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 99.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 3,
+      "source_id": "demo_vid_003",
+      "title": "#003 - Functions, Arguments, Keyword Unpacking, and Scopes",
+      "duration_seconds": 349,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 52.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 4,
+      "source_id": "demo_vid_004",
+      "title": "#004 - Decorators, Closures, and Higher-Order Functions",
+      "duration_seconds": 622,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 93.3,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 5,
+      "source_id": "demo_vid_005",
+      "title": "#005 - Generators, Iterators, and Yield Expressions",
+      "duration_seconds": 815,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 122.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 6,
+      "source_id": "demo_vid_006",
+      "title": "#006 - List, Dict, and Set Comprehensions",
+      "duration_seconds": 488,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 73.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 7,
+      "source_id": "demo_vid_007",
+      "title": "#007 - Context Managers and the with Statement",
+      "duration_seconds": 701,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 105.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 8,
+      "source_id": "demo_vid_008",
+      "title": "#008 - Exception Hierarchy and Defensive Handling",
+      "duration_seconds": 1054,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 158.1,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 9,
+      "source_id": "demo_vid_009",
+      "title": "#009 - String Formatting, Regex, and Text Parsing",
+      "duration_seconds": 637,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 95.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 10,
+      "source_id": "demo_vid_010",
+      "title": "#010 - Working with Files and Pathlib",
+      "duration_seconds": 460,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 69.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 11,
+      "source_id": "demo_vid_011",
+      "title": "#011 - Modules, Packages, and Imports Deep Dive",
+      "duration_seconds": 623,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 93.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 12,
+      "source_id": "demo_vid_012",
+      "title": "#012 - Virtual Environments and Pip Management",
+      "duration_seconds": 756,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 113.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 13,
+      "source_id": "demo_vid_013",
+      "title": "#013 - Datetime and Timezone Best Practices",
+      "duration_seconds": 529,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 79.3,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 14,
+      "source_id": "demo_vid_014",
+      "title": "#014 - JSON and Serialization Techniques",
+      "duration_seconds": 422,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 63.3,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 15,
+      "source_id": "demo_vid_015",
+      "title": "#015 - Standard Library Hidden Gems",
+      "duration_seconds": 260,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Python Fundamentals",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 39.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 16,
+      "source_id": "demo_vid_016",
+      "title": "#016 - Classes, Objects, and Self Mechanism",
+      "duration_seconds": 918,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 137.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 17,
+      "source_id": "demo_vid_017",
+      "title": "#017 - Dunder Methods and Operator Overloading",
+      "duration_seconds": 681,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 102.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 18,
+      "source_id": "demo_vid_018",
+      "title": "#018 - Inheritance, Composition, and MRO",
+      "duration_seconds": 364,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 54.6,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 19,
+      "source_id": "demo_vid_019",
+      "title": "#019 - Abstract Base Classes and Interfaces",
+      "duration_seconds": 637,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 95.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 20,
+      "source_id": "demo_vid_020",
+      "title": "#020 - Dataclasses and Pydantic Comparison",
+      "duration_seconds": 830,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 124.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 21,
+      "source_id": "demo_vid_021",
+      "title": "#021 - Encapsulation and Property Decorators",
+      "duration_seconds": 503,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 75.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 22,
+      "source_id": "demo_vid_022",
+      "title": "#022 - Singleton and Factory Method Patterns",
+      "duration_seconds": 716,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 107.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 23,
+      "source_id": "demo_vid_023",
+      "title": "#023 - Observer Pattern and Event Dispatching",
+      "duration_seconds": 1069,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 160.3,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 24,
+      "source_id": "demo_vid_024",
+      "title": "#024 - Strategy Pattern for Swappable Algorithms",
+      "duration_seconds": 652,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 97.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 25,
+      "source_id": "demo_vid_025",
+      "title": "#025 - Adapter Pattern for Legacy System Wrap",
+      "duration_seconds": 475,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 71.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 26,
+      "source_id": "demo_vid_026",
+      "title": "#026 - Decorator Pattern in Class Architecture",
+      "duration_seconds": 638,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 95.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 27,
+      "source_id": "demo_vid_027",
+      "title": "#027 - State Pattern for Finite State Machines",
+      "duration_seconds": 771,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 115.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 28,
+      "source_id": "demo_vid_028",
+      "title": "#028 - Command Pattern for Undoable Operations",
+      "duration_seconds": 364,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 54.6,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 29,
+      "source_id": "demo_vid_029",
+      "title": "#029 - Dependency Injection Principles",
+      "duration_seconds": 437,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 65.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 30,
+      "source_id": "demo_vid_030",
+      "title": "#030 - Refactoring Procedural Code to OOP",
+      "duration_seconds": 275,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Object-Oriented Programming",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 41.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 31,
+      "source_id": "demo_vid_031",
+      "title": "#031 - Big-O Time and Space Complexity Analysis",
+      "duration_seconds": 933,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 139.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 32,
+      "source_id": "demo_vid_032",
+      "title": "#032 - Dynamic Arrays and Amortized Analysis",
+      "duration_seconds": 696,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 104.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 33,
+      "source_id": "demo_vid_033",
+      "title": "#033 - Singly and Doubly Linked Lists",
+      "duration_seconds": 379,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 56.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 34,
+      "source_id": "demo_vid_034",
+      "title": "#034 - Stack Implementation and Balancing Equations",
+      "duration_seconds": 652,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 97.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 35,
+      "source_id": "demo_vid_035",
+      "title": "#035 - Queue and Double-Ended Queue (Deque)",
+      "duration_seconds": 845,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 126.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 36,
+      "source_id": "demo_vid_036",
+      "title": "#036 - Hash Tables and Collision Resolution",
+      "duration_seconds": 518,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 77.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 37,
+      "source_id": "demo_vid_037",
+      "title": "#037 - Binary Search and Boundary Scanning",
+      "duration_seconds": 731,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 109.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 38,
+      "source_id": "demo_vid_038",
+      "title": "#038 - Binary Search Trees (BST) Insertion and Deletion",
+      "duration_seconds": 1084,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 162.6,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 39,
+      "source_id": "demo_vid_039",
+      "title": "#039 - Tree Traversals: Inorder, Preorder, Postorder",
+      "duration_seconds": 667,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 100.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 40,
+      "source_id": "demo_vid_040",
+      "title": "#040 - Heap and Priority Queue Applications",
+      "duration_seconds": 490,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 73.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 41,
+      "source_id": "demo_vid_041",
+      "title": "#041 - Graph Representations: Adjacency List vs Matrix",
+      "duration_seconds": 653,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 98.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 42,
+      "source_id": "demo_vid_042",
+      "title": "#042 - Breadth-First Search (BFS) Traversal",
+      "duration_seconds": 606,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 90.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 43,
+      "source_id": "demo_vid_043",
+      "title": "#043 - Depth-First Search (DFS) Traversal",
+      "duration_seconds": 379,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 56.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 44,
+      "source_id": "demo_vid_044",
+      "title": "#044 - Dijkstra's Shortest Path Algorithm",
+      "duration_seconds": 452,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 67.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 45,
+      "source_id": "demo_vid_045",
+      "title": "#045 - Recursion and Memoization Strategies",
+      "duration_seconds": 290,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 43.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 46,
+      "source_id": "demo_vid_046",
+      "title": "#046 - Dynamic Programming: Knapsack Problem",
+      "duration_seconds": 948,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 142.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 47,
+      "source_id": "demo_vid_047",
+      "title": "#047 - Sorting: QuickSort and MergeSort Explained",
+      "duration_seconds": 711,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 106.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 48,
+      "source_id": "demo_vid_048",
+      "title": "#048 - Two Pointer Technique for String & Array Problems",
+      "duration_seconds": 394,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 59.1,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 49,
+      "source_id": "demo_vid_049",
+      "title": "#049 - Sliding Window Algorithm Patterns",
+      "duration_seconds": 667,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 100.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 50,
+      "source_id": "demo_vid_050",
+      "title": "#050 - Trie Data Structure for Autocomplete Systems",
+      "duration_seconds": 860,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Data Structures & Algorithms",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 129.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 51,
+      "source_id": "demo_vid_051",
+      "title": "#051 - Relational Database Fundamentals & Normalization",
+      "duration_seconds": 533,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 80.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 52,
+      "source_id": "demo_vid_052",
+      "title": "#052 - SQLite Architecture and Transaction Models",
+      "duration_seconds": 746,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 111.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 53,
+      "source_id": "demo_vid_053",
+      "title": "#053 - SQL Select, Joins, Group By, and Aggregations",
+      "duration_seconds": 1099,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 164.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 54,
+      "source_id": "demo_vid_054",
+      "title": "#054 - Database Indexing, B-Trees, and Query Plans",
+      "duration_seconds": 682,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 102.3,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 55,
+      "source_id": "demo_vid_055",
+      "title": "#055 - Foreign Keys, Constraints, and Data Integrity",
+      "duration_seconds": 505,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 75.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 56,
+      "source_id": "demo_vid_056",
+      "title": "#056 - ACID Properties and Isolation Levels",
+      "duration_seconds": 488,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 73.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 57,
+      "source_id": "demo_vid_057",
+      "title": "#057 - SQLAlchemy 2.0 Core vs ORM Patterns",
+      "duration_seconds": 621,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 93.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 58,
+      "source_id": "demo_vid_058",
+      "title": "#058 - Declarative Base and Model Definitions",
+      "duration_seconds": 394,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 59.1,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 59,
+      "source_id": "demo_vid_059",
+      "title": "#059 - One-to-Many Relationships and Cascades",
+      "duration_seconds": 467,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 70.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 60,
+      "source_id": "demo_vid_060",
+      "title": "#060 - Many-to-Many Association Tables",
+      "duration_seconds": 305,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 45.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 61,
+      "source_id": "demo_vid_061",
+      "title": "#061 - Session Lifecycles, Unit of Work, and Flushes",
+      "duration_seconds": 963,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 144.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 62,
+      "source_id": "demo_vid_062",
+      "title": "#062 - Thread-Safe Sessions in Multi-Threaded Apps",
+      "duration_seconds": 726,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 108.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 63,
+      "source_id": "demo_vid_063",
+      "title": "#063 - Query Optimization and N+1 Problem Prevention",
+      "duration_seconds": 409,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 61.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 64,
+      "source_id": "demo_vid_064",
+      "title": "#064 - Database Migrations and Schema Versioning",
+      "duration_seconds": 682,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 102.3,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 65,
+      "source_id": "demo_vid_065",
+      "title": "#065 - Safe Transaction Rollbacks on Application Errors",
+      "duration_seconds": 875,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Relational Databases & SQLAlchemy",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 131.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 66,
+      "source_id": "demo_vid_066",
+      "title": "#066 - WSGI, ASGI, and Web Server Gateways",
+      "duration_seconds": 548,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 82.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 67,
+      "source_id": "demo_vid_067",
+      "title": "#067 - Flask Application Factory Pattern",
+      "duration_seconds": 761,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 114.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 68,
+      "source_id": "demo_vid_068",
+      "title": "#068 - Blueprints and Modular Routing Architecture",
+      "duration_seconds": 1114,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 167.1,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 69,
+      "source_id": "demo_vid_069",
+      "title": "#069 - Handling Requests, Headers, and Query Parameters",
+      "duration_seconds": 697,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 104.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 70,
+      "source_id": "demo_vid_070",
+      "title": "#070 - Building RESTful JSON Endpoints",
+      "duration_seconds": 340,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 51.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 71,
+      "source_id": "demo_vid_071",
+      "title": "#071 - HTTP Status Codes and Error Handlers",
+      "duration_seconds": 503,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 75.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 72,
+      "source_id": "demo_vid_072",
+      "title": "#072 - Template Rendering with Jinja2 and Macros",
+      "duration_seconds": 636,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 95.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 73,
+      "source_id": "demo_vid_073",
+      "title": "#073 - Form Handling, CSRF Protection, and Validation",
+      "duration_seconds": 409,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 61.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 74,
+      "source_id": "demo_vid_074",
+      "title": "#074 - Static Assets, Caching, and CDN Strategy",
+      "duration_seconds": 482,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 72.3,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 75,
+      "source_id": "demo_vid_075",
+      "title": "#075 - Server-Sent Events (SSE) for Real-Time Feeds",
+      "duration_seconds": 320,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 48.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 76,
+      "source_id": "demo_vid_076",
+      "title": "#076 - Session Management and Cookie Security",
+      "duration_seconds": 978,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 146.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 77,
+      "source_id": "demo_vid_077",
+      "title": "#077 - Middleware and Request Hooks (before/after_request)",
+      "duration_seconds": 741,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 111.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 78,
+      "source_id": "demo_vid_078",
+      "title": "#078 - API Authentication Patterns and Tokens",
+      "duration_seconds": 424,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 63.6,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 79,
+      "source_id": "demo_vid_079",
+      "title": "#079 - Rate Limiting and Throttling Requests",
+      "duration_seconds": 697,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 104.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 80,
+      "source_id": "demo_vid_080",
+      "title": "#080 - Production Readiness with Gunicorn and Waitress",
+      "duration_seconds": 890,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Flask Web Architecture",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 133.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 81,
+      "source_id": "demo_vid_081",
+      "title": "#081 - Processes vs Threads vs Coroutines in Python",
+      "duration_seconds": 563,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 84.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 82,
+      "source_id": "demo_vid_082",
+      "title": "#082 - The Global Interpreter Lock (GIL) Explained",
+      "duration_seconds": 776,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 116.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 83,
+      "source_id": "demo_vid_083",
+      "title": "#083 - Threading Module: Thread Spawning and Joining",
+      "duration_seconds": 1129,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 169.3,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 84,
+      "source_id": "demo_vid_084",
+      "title": "#084 - Thread Synchronization: Locks and RLocks",
+      "duration_seconds": 532,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 79.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 85,
+      "source_id": "demo_vid_085",
+      "title": "#085 - Condition Variables and Thread Signaling",
+      "duration_seconds": 355,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 53.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 86,
+      "source_id": "demo_vid_086",
+      "title": "#086 - Producer-Consumer Pattern with Queue.Queue",
+      "duration_seconds": 518,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 77.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 87,
+      "source_id": "demo_vid_087",
+      "title": "#087 - Daemon Threads vs Non-Daemon Worker Lifecycles",
+      "duration_seconds": 651,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 97.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 88,
+      "source_id": "demo_vid_088",
+      "title": "#088 - Graceful Worker Shutdown and Poison Pills",
+      "duration_seconds": 424,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 63.6,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 89,
+      "source_id": "demo_vid_089",
+      "title": "#089 - Subprocess Execution: Popen, Pipes, and Deadlocks",
+      "duration_seconds": 497,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 74.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 90,
+      "source_id": "demo_vid_090",
+      "title": "#090 - Simulating Network Interruptions and Jitter",
+      "duration_seconds": 335,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 50.2,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 91,
+      "source_id": "demo_vid_091",
+      "title": "#091 - Exponential Backoff and Retry Strategies",
+      "duration_seconds": 993,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 148.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 92,
+      "source_id": "demo_vid_092",
+      "title": "#092 - Idempotency in Distributed Job Processing",
+      "duration_seconds": 756,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 113.4,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 93,
+      "source_id": "demo_vid_093",
+      "title": "#093 - Crash Recovery and State Reconciliation",
+      "duration_seconds": 439,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 65.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 94,
+      "source_id": "demo_vid_094",
+      "title": "#094 - Thread-Safe In-Memory Queue State Management",
+      "duration_seconds": 712,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 106.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 95,
+      "source_id": "demo_vid_095",
+      "title": "#095 - Deadlock Prevention and Timeout Coordination",
+      "duration_seconds": 905,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Concurrency & Queue Engineering",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 135.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 96,
+      "source_id": "demo_vid_096",
+      "title": "#096 - Testing Philosophy: Unit, Integration, and E2E",
+      "duration_seconds": 578,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 86.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 97,
+      "source_id": "demo_vid_097",
+      "title": "#097 - Getting Started with Pytest and Assertions",
+      "duration_seconds": 611,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 91.7,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 98,
+      "source_id": "demo_vid_098",
+      "title": "#098 - Pytest Fixtures and Dependency Injection",
+      "duration_seconds": 964,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 144.6,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 99,
+      "source_id": "demo_vid_099",
+      "title": "#099 - Database Testing with In-Memory SQLite",
+      "duration_seconds": 547,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 82.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 100,
+      "source_id": "demo_vid_100",
+      "title": "#100 - Mocking External APIs with Unittest.mock",
+      "duration_seconds": 370,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 55.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 101,
+      "source_id": "demo_vid_101",
+      "title": "#101 - Testing Background Worker Threads Safely",
+      "duration_seconds": 533,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 80.0,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 102,
+      "source_id": "demo_vid_102",
+      "title": "#102 - Code Coverage Analysis and Reporting",
+      "duration_seconds": 666,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 99.9,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 103,
+      "source_id": "demo_vid_103",
+      "title": "#103 - Parameterizing Tests for Edge Case Coverage",
+      "duration_seconds": 439,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 65.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 104,
+      "source_id": "demo_vid_104",
+      "title": "#104 - Defensive Exception Testing and Validation",
+      "duration_seconds": 512,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 76.8,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "position": 105,
+      "source_id": "demo_vid_105",
+      "title": "#105 - Continuous Integration Workflows and Linting",
+      "duration_seconds": 350,
+      "media_type": "video",
+      "availability_status": "available",
+      "thumbnail_url": "/static/images/placeholder-thumbnail.svg",
+      "metadata": {
+        "module": "Testing & Code Quality",
+        "author": "PlaylistPilot Educational Series",
+        "resolution": "1080p",
+        "estimated_size_mb": 52.5,
+        "is_demo": true,
+        "tags": [
+          "python",
+          "mca-project",
+          "algorithms",
+          "architecture"
+        ]
+      }
+    }
+  ]
+}

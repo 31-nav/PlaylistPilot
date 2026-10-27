@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ playlist.title }}{% endblock %}
+
+{% block content %}
+<!-- Playlist Header Card -->
+<div class="card-3d" style="margin-bottom: 24px;">
+  <div class="card-body-3d" style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+    <img src="{{ playlist.thumbnail_url or '/static/images/placeholder-thumbnail.svg' }}" alt="Playlist Thumbnail" style="width: 140px; height: 90px; border-radius: var(--radius-md); object-fit: cover; box-shadow: var(--shadow-card-3d);">
+    <div style="flex: 1; min-width: 260px;">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+        <span class="badge-status queued">{{ playlist.source_type|upper }}</span>
+        <span style="font-size: 0.82rem; color: var(--text-muted);">{{ playlist.item_count }} Videos Recorded</span>
+      </div>
+      <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--color-black); margin-bottom: 6px;">
+        {{ playlist.title }}
+      </h2>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+        {{ playlist.description or 'No description provided.' }}
+      </p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <button id="btn-queue-all" data-playlist-id="{{ playlist.id }}" class="btn-3d btn-3d-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>Add All {{ playlist.item_count }} to Queue</span>
+      </button>
+      <a href="{{ url_for('playlists.list_view') }}" class="btn-3d btn-3d-secondary">
+        &larr; Back to Playlists
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Controls & Filter Toolbar -->
+<div class="card-3d" style="margin-bottom: 24px;">
+  <div class="card-body-3d" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+    <!-- Search Form -->
+    <form method="GET" action="{{ url_for('playlists.explorer_view', playlist_id=playlist.id) }}" style="display: flex; gap: 10px; align-items: center; flex: 1; max-width: 480px;">
+      <input type="text" name="search" class="form-input" placeholder="Search lectures / topics..." value="{{ search }}" style="width: 100%;">
+      <button type="submit" class="btn-3d btn-3d-secondary">Filter</button>
+      {% if search %}
+        <a href="{{ url_for('playlists.explorer_view', playlist_id=playlist.id) }}" class="btn-3d btn-3d-secondary">Reset</a>
+      {% endif %}
+    </form>
+
+    <!-- Quality & Selection Actions -->
+    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <div style="display: inline-flex; align-items: center; gap: 6px;">
+        <label for="select-download-quality" style="font-size: 0.82rem; font-weight: 700; color: var(--color-black);">Quality:</label>
+        <select id="select-download-quality" class="form-input" style="padding: 6px 10px; font-size: 0.85rem; width: auto; font-weight: 600; cursor: pointer;">
+          <option value="best" selected>🌟 Best Available (1080p+)</option>
+          <option value="1080p">1080p Full HD</option>
+          <option value="720p">720p HD</option>
+          <option value="480p">480p Standard</option>
+          <option value="360p">360p Data Saver</option>
+          <option value="audio_mp3">🎵 Audio Only (MP3)</option>
+        </select>
+      </div>
+      <span id="selection-count" class="badge-status completed" style="display: none;">0 selected</span>
+      <button id="btn-clear-selection" class="btn-3d btn-3d-secondary btn-3d-sm">Clear</button>
+      <button id="btn-queue-selected" class="btn-3d btn-3d-primary" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <span>Add Selected to Queue</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Items Table -->
+<div class="card-3d">
+  <div class="card-header-3d">
+    <div class="card-title">
+      <span>Videos in Playlist (Showing page {{ page }} of {{ total_pages }}, total {{ total_count }} items)</span>
+    </div>
+  </div>
+  <div class="card-body-3d" style="padding: 0;">
+    <div class="table-responsive">
+      <table class="table-3d">
+        <thead>
+          <tr>
+            <th style="width: 40px; text-align: center;">
+              <input type="checkbox" id="select-all-items" aria-label="Select all items on this page">
+            </th>
+            <th style="width: 60px;">#</th>
+            <th style="width: 80px;">Thumbnail</th>
+            <th>Title & Lecture Topic</th>
+            <th>Duration</th>
+            <th>Availability</th>
+            <th style="text-align: right;">Queue Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+            <tr>
+              <td style="text-align: center;">
+                <input type="checkbox" class="item-checkbox" value="{{ item.id }}" aria-label="Select {{ item.title }}">
+              </td>
+              <td style="font-weight: 700; color: var(--text-muted); font-size: 0.85rem;">
+                {{ item.position }}
+              </td>
+              <td>
+                <img src="{{ item.thumbnail_url or '/static/images/placeholder-thumbnail.svg' }}" alt="Thumbnail" class="table-thumb">
+              </td>
+              <td>
+                <div style="font-weight: 600; color: var(--color-black);">{{ item.title }}</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Source ID: {{ item.source_id }}</div>
+              </td>
+              <td style="font-family: var(--font-mono); font-size: 0.85rem;">
+                {{ item.formatted_duration }}
+              </td>
+              <td>
+                <span class="badge-status queued" style="font-size: 0.7rem;">{{ item.availability_status|upper }}</span>
+              </td>
+              <td style="text-align: right;">
+                <button class="btn-3d btn-3d-secondary btn-3d-sm btn-quick-queue" data-item-id="{{ item.id }}">
+                  + Queue
+                </button>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination Controls -->
+    {% if total_pages > 1 %}
+      <div style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light);">
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">
+          Page {{ page }} of {{ total_pages }} ({{ total_count }} items total)
+        </span>
+        <div style="display: flex; gap: 8px;">
+          {% if page > 1 %}
+            <a href="{{ url_for('playlists.explorer_view', playlist_id=playlist.id, page=page-1, search=search) }}" class="btn-3d btn-3d-secondary btn-3d-sm">
+              &larr; Previous
+            </a>
+          {% endif %}
+          {% if page < total_pages %}
+            <a href="{{ url_for('playlists.explorer_view', playlist_id=playlist.id, page=page+1, search=search) }}" class="btn-3d btn-3d-secondary btn-3d-sm">
+              Next &rarr;
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/playlist.js') }}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Quick individual queue button
+  document.querySelectorAll(".btn-quick-queue").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const id = parseInt(btn.getAttribute("data-item-id"));
+      try {
+        btn.disabled = true;
+        btn.textContent = "Adding...";
+        const qualityVal = document.getElementById("select-download-quality") ? document.getElementById("select-download-quality").value : "best";
+        const jobType = qualityVal === "audio_mp3" ? "youtube_audio" : "youtube_download";
+        const res = await fetch("/api/queue", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ item_ids: [id], quality: qualityVal, job_type: jobType })
+        });
+        const data = await res.json();
+        if (data.success) {
+          Notifications.success(data.message);
+          btn.textContent = "Enqueued";
+        } else {
+          Notifications.error(data.error);
+          btn.disabled = false;
+          btn.textContent = "+ Queue";
+        }
+      } catch (e) {
+        Notifications.error("Error adding to queue.");
+        btn.disabled = false;
+        btn.textContent = "+ Queue";
+      }
+    });
+  });
+});
+</script>
+{% endblock %}

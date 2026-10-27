@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% block page_title %}Queue Manager & Execution Engine{% endblock %}
+
+{% block content %}
+<!-- Master Control Bar -->
+<div class="card-3d" style="margin-bottom: 24px;">
+  <div class="card-body-3d" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+    <!-- State Summary -->
+    <div>
+      <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">
+        Queue State
+      </div>
+      <div style="font-size: 1.2rem; font-weight: 800; color: var(--color-black);">
+        {{ status.counts.queued }} Waiting &bull; {{ status.counts.downloading }} Active &bull; {{ status.counts.completed }} Finished
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <button id="btn-queue-start" class="btn-3d btn-3d-primary" {% if status.counts.downloading > 0 %}disabled{% endif %}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        <span>Start Processing</span>
+      </button>
+
+      <button id="btn-queue-pause" class="btn-3d btn-3d-secondary" {% if status.counts.downloading == 0 %}disabled{% endif %}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+        <span>Pause</span>
+      </button>
+
+      <button id="btn-queue-resume" class="btn-3d btn-3d-secondary" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        <span>Resume</span>
+      </button>
+
+      <button id="btn-queue-cancel-all" class="btn-3d btn-3d-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        <span>Cancel Waiting</span>
+      </button>
+
+      {% if status.counts.failed > 0 or status.counts.interrupted > 0 %}
+        <button id="btn-queue-retry-all" class="btn-3d btn-3d-danger">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+          <span>Retry Failed ({{ status.counts.failed + status.counts.interrupted }})</span>
+        </button>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Active Job Panel -->
+<div class="card-3d" style="margin-bottom: 28px;">
+  <div class="card-header-3d">
+    <div class="card-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-red)" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      <span>Active Sequential Processing</span>
+    </div>
+    <span id="active-job-badge" class="badge-status {% if active_job %}downloading{% else %}queued{% endif %}">
+      {% if active_job %}Processing (Single Worker){% else %}Worker Idle{% endif %}
+    </span>
+  </div>
+  <div class="card-body-3d">
+    <div id="active-job-container" {% if not active_job %}style="display: none;"{% endif %}>
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <div id="active-job-title" style="font-size: 1.15rem; font-weight: 700; color: var(--color-black);">
+            {% if active_job and active_job.media_item %}
+              #{{ active_job.id }} - {{ active_job.media_item.title }}
+            {% endif %}
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+            Sequential download engine with resume capability & real-time byte tracking.
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 8px;">
+          <button class="btn-3d btn-3d-secondary btn-3d-sm btn-cancel-job" data-job-id="{{ active_job.id if active_job else '' }}">
+            Cancel This Job
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Job Progress -->
+      <div class="progress-container">
+        <div class="progress-label-row">
+          <span>Current Job Transfer</span>
+          <span id="active-job-progress-pct">{{ active_job.progress_percent if active_job else 0 }}%</span>
+        </div>
+        <div class="progress-track-3d">
+          <div id="active-job-progress-fill" class="progress-fill-3d" style="width: {{ active_job.progress_percent if active_job else 0 }}%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State when no job is running -->
+    <div id="no-active-job-notice" {% if active_job %}style="display: none;"{% endif %} style="text-align: center; padding: 24px; color: var(--text-muted);">
+      <p style="font-size: 0.95rem; margin-bottom: 8px;">No job is currently active.</p>
+      {% if waiting_jobs %}
+        <p style="font-size: 0.85rem;">Click <strong>"Start Processing"</strong> to begin processing the waiting queue sequentially.</p>
+      {% else %}
+        <p style="font-size: 0.85rem;">Queue is empty. Go to <a href="{{ url_for('playlists.list_view') }}" style="color: var(--color-red); font-weight: 600;">Playlists</a> to enqueue items.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Waiting Jobs Queue Table -->
+<div class="card-3d">
+  <div class="card-header-3d">
+    <div class="card-title">
+      <span>Waiting Queue (FIFO with Priority Ordering)</span>
+    </div>
+    <span style="font-size: 0.85rem; color: var(--text-secondary);">
+      Total Waiting: <strong>{{ waiting_jobs|length }}</strong>
+    </span>
+  </div>
+  <div class="card-body-3d" style="padding: 0;">
+    {% if waiting_jobs %}
+      <div class="table-responsive">
+        <table class="table-3d">
+          <thead>
+            <tr>
+              <th style="width: 50px;">Seq</th>
+              <th style="width: 80px;">Thumbnail</th>
+              <th>Video Title</th>
+              <th>Duration</th>
+              <th>Format / Quality</th>
+              <th>Priority</th>
+              <th>Enqueued At</th>
+              <th style="text-align: right;">Queue Control</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for job in waiting_jobs %}
+              <tr>
+                <td style="font-weight: 700; color: var(--text-muted); font-size: 0.85rem;">
+                  {{ loop.index }}
+                </td>
+                <td>
+                  <img src="{{ job.media_item.thumbnail_url or '/static/images/placeholder-thumbnail.svg' }}" alt="Thumb" class="table-thumb">
+                </td>
+                <td>
+                  <div style="font-weight: 600; color: var(--color-black);">
+                    {{ job.media_item.title if job.media_item else 'Unknown Item' }}
+                  </div>
+                  <div style="font-size: 0.72rem; color: var(--text-muted);">
+                    Job #{{ job.id }} &bull; Source ID: {{ job.media_item.source_id if job.media_item else '' }}
+                  </div>
+                </td>
+                <td style="font-family: var(--font-mono); font-size: 0.85rem;">
+                  {{ job.media_item.formatted_duration if job.media_item else '--:--' }}
+                </td>
+                <td>
+                  <select class="form-input select-job-quality" data-job-id="{{ job.id }}" style="padding: 4px 8px; font-size: 0.78rem; width: auto; font-weight: 600; cursor: pointer;">
+                    <option value="best" {% if (job.quality or 'best') == 'best' %}selected{% endif %}>Best (1080p+)</option>
+                    <option value="1080p" {% if job.quality == '1080p' %}selected{% endif %}>1080p Full HD</option>
+                    <option value="720p" {% if job.quality == '720p' %}selected{% endif %}>720p HD</option>
+                    <option value="480p" {% if job.quality == '480p' %}selected{% endif %}>480p Standard</option>
+                    <option value="360p" {% if job.quality == '360p' %}selected{% endif %}>360p Data Saver</option>
+                    <option value="audio_mp3" {% if job.quality == 'audio_mp3' %}selected{% endif %}>MP3 Audio</option>
+                  </select>
+                </td>
+                <td>
+                  {% if job.priority > 0 %}
+                    <span class="badge-status downloading" style="font-size: 0.7rem; animation: none;">
+                      URGENT (+{{ job.priority }})
+                    </span>
+                  {% else %}
+                    <span class="badge-status queued" style="font-size: 0.7rem;">Normal</span>
+                  {% endif %}
+                </td>
+                <td style="font-size: 0.82rem; color: var(--text-muted);">
+                  {{ job.created_at.strftime('%H:%M:%S') }}
+                </td>
+                <td style="text-align: right;">
+                  <div style="display: inline-flex; gap: 8px;">
+                    <button class="btn-3d btn-3d-secondary btn-3d-sm btn-prioritize" data-job-id="{{ job.id }}" title="Move to front of waiting queue">
+                      &uarr; Prioritize Urgent
+                    </button>
+                    <button class="btn-3d btn-3d-secondary btn-3d-sm btn-cancel-job" data-job-id="{{ job.id }}" title="Remove from queue">
+                      Remove
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div style="padding: 40px; text-align: center; color: var(--text-muted);">
+        No waiting jobs in the queue. Enqueue lectures from any playlist to process!
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/queue.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>{% block title %}PlaylistPilot — Fast YouTube Video & Playlist Downloader{% endblock %}</title>
+  <meta name="description" content="PlaylistPilot: Fast, modern YouTube video and playlist downloader. Paste any YouTube link, choose format, and download MP4 or MP3 directly to your local device.">
+
+  <!-- Design System & Stylesheets -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/design-system.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- App Container -->
+  <div class="app-layout">
+    
+    <!-- Top Navigation Header -->
+    <header class="navbar-top">
+      <div class="navbar-inner">
+        <!-- Brand -->
+        <a href="{{ url_for('dashboard.index') }}" class="nav-brand">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+          <div class="brand-titles">
+            <span class="brand-name">Playlist<span>Pilot</span></span>
+            <span class="brand-sub">YouTube Downloader</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-menu">
+          <a href="{{ url_for('dashboard.index') }}" class="nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Downloader</span>
+          </a>
+
+          <a href="{{ url_for('queue.index') }}" class="nav-item {% if active_page == 'queue' %}active{% endif %}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            <span>Queue</span>
+            <span id="nav-queue-count" class="badge-status queued" style="display: none; padding: 2px 6px; font-size: 0.68rem;">0</span>
+          </a>
+
+          <a href="{{ url_for('history.index') }}" class="nav-item {% if active_page == 'history' %}active{% endif %}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Downloads</span>
+          </a>
+        </nav>
+
+        <!-- Right Status Badge -->
+        <div class="nav-actions">
+          <div id="header-network-pill" class="header-status-pill" title="Network Engine Status">
+            <span class="status-indicator"></span>
+            <span id="header-network-text">Online</span>
+          </div>
+
+          <div id="header-queue-status-pill" class="header-status-pill" title="Background Download Engine">
+            <span class="status-indicator"></span>
+            <span id="header-queue-badge">Engine Ready</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Canvas -->
+    <main class="main-viewport" id="main-content">
+      <div class="page-title-banner" style="{% if active_page == 'dashboard' %}display: none;{% else %}margin-bottom: 22px;{% endif %}">
+        <h1 style="font-size: 1.5rem; font-weight: 800; color: var(--color-black);">{% block page_title %}Dashboard{% endblock %}</h1>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div style="max-width: 1040px; margin: 0 auto 16px auto;">
+            {% for category, message in messages %}
+              <div class="alert-box notice-info">
+                <span>{{ message }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Clean Public Footer -->
+    <footer class="public-footer">
+      <div class="footer-inner">
+        <div>
+          <strong>PlaylistPilot</strong> &bull; Direct YouTube Video & Playlist Downloader (MP4 / MP3)
+        </div>
+        <div style="color: var(--text-muted); font-size: 0.78rem;">
+          Fast, sequential background queue with direct local device download.
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Mobile Bottom Navigation Dock (Visible only on phones <= 768px) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+    <a href="{{ url_for('dashboard.index') }}" class="mobile-nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      <span>Downloader</span>
+    </a>
+
+    <a href="{{ url_for('queue.index') }}" class="mobile-nav-item {% if active_page == 'queue' %}active{% endif %}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+      </svg>
+      <span>Queue</span>
+    </a>
+
+    <a href="{{ url_for('history.index') }}" class="mobile-nav-item {% if active_page == 'history' %}active{% endif %}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <span>Downloads</span>
+    </a>
+  </nav>
+
+  <!-- Core JavaScript -->
+  <script src="{{ url_for('static', filename='js/notifications.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block page_title %}Job Execution History & Audit{% endblock %}
+
+{% block content %}
+<!-- History Filter Bar -->
+<div class="card-3d" style="margin-bottom: 24px;">
+  <div class="card-body-3d" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+    <form id="history-filter-form" method="GET" action="{{ url_for('history.index') }}" style="display: flex; gap: 12px; align-items: center; flex: 1; max-width: 600px; flex-wrap: wrap;">
+      <!-- Search Input -->
+      <input type="text" name="search" class="form-input" placeholder="Search title or keyword..." value="{{ search }}" style="flex: 1; min-width: 200px;">
+
+      <!-- Status Dropdown -->
+      <select name="status" id="history-status-filter" class="form-select" style="width: 170px;">
+        <option value="">All Statuses</option>
+        <option value="completed" {% if status_filter == 'completed' %}selected{% endif %}>Completed</option>
+        <option value="failed" {% if status_filter == 'failed' %}selected{% endif %}>Failed</option>
+        <option value="interrupted" {% if status_filter == 'interrupted' %}selected{% endif %}>Interrupted</option>
+        <option value="cancelled" {% if status_filter == 'cancelled' %}selected{% endif %}>Cancelled</option>
+      </select>
+
+      <button type="submit" class="btn-3d btn-3d-secondary">Filter</button>
+      {% if search or status_filter %}
+        <a href="{{ url_for('history.index') }}" class="btn-3d btn-3d-secondary">Reset</a>
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+<!-- History Table Card -->
+<div class="card-3d">
+  <div class="card-header-3d">
+    <div class="card-title">
+      <span>Processed Records (Total: {{ total }})</span>
+    </div>
+  </div>
+  <div class="card-body-3d" style="padding: 0;">
+    {% if jobs %}
+      <div class="table-responsive">
+        <table class="table-3d">
+          <thead>
+            <tr>
+              <th style="width: 60px;">ID</th>
+              <th style="width: 80px;">Thumbnail</th>
+              <th>Item Title</th>
+              <th>Mode</th>
+              <th>Status</th>
+              <th>Retries</th>
+              <th>Finished / Recorded</th>
+              <th style="text-align: right;">Action / Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for job in jobs %}
+              <tr>
+                <td style="font-weight: 700; color: var(--text-muted); font-size: 0.85rem;">
+                  #{{ job.id }}
+                </td>
+                <td>
+                  <img src="{{ job.media_item.thumbnail_url or '/static/images/placeholder-thumbnail.svg' }}" alt="Thumb" class="table-thumb">
+                </td>
+                <td>
+                  <div style="font-weight: 600; color: var(--color-black);">
+                    {{ job.media_item.title if job.media_item else 'Unknown Item' }}
+                  </div>
+                  {% if job.error_message %}
+                    <div style="font-size: 0.75rem; color: var(--color-red); margin-top: 3px; font-weight: 500;">
+                      Error: {{ job.error_message }}
+                    </div>
+                  {% elif job.output_path %}
+                    <div style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 2px;">
+                      Saved: {{ job.output_path }}
+                    </div>
+                  {% endif %}
+                </td>
+                <td>
+                  <span class="badge-status queued" style="font-size: 0.7rem;">{{ job.job_type|upper }}</span>
+                </td>
+                <td>
+                  <span class="badge-status {{ job.status }}">{{ job.status|upper }}</span>
+                </td>
+                <td style="font-size: 0.85rem; color: var(--text-secondary);">
+                  {{ job.retry_count }} / {{ job.max_retries }}
+                </td>
+                <td style="font-size: 0.82rem; color: var(--text-muted);">
+                  {{ job.updated_at.strftime('%Y-%m-%d %H:%M:%S') }}
+                </td>
+                <td style="text-align: right;">
+                  {% if job.status == 'completed' %}
+                    <a href="{{ url_for('api.download_job_file', job_id=job.id) }}" class="btn-3d btn-3d-primary btn-3d-sm" download style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                      <span>{% if job.quality == 'audio_mp3' or job.job_type == 'youtube_audio' %}Download MP3{% else %}Download MP4{% endif %}</span>
+                    </a>
+                  {% elif job.status in ('failed', 'interrupted') and job.retry_count < job.max_retries %}
+                    <button class="btn-3d btn-3d-secondary btn-3d-sm btn-history-retry" data-job-id="{{ job.id }}">
+                      Retry Job
+                    </button>
+                  {% else %}
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">{{ job.status|capitalize }}</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Controls -->
+      {% if total_pages > 1 %}
+        <div style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light);">
+          <span style="font-size: 0.85rem; color: var(--text-secondary);">
+            Page {{ page }} of {{ total_pages }} ({{ total }} total audit records)
+          </span>
+          <div style="display: flex; gap: 8px;">
+            {% if page > 1 %}
+              <a href="{{ url_for('history.index', page=page-1, status=status_filter, search=search) }}" class="btn-3d btn-3d-secondary btn-3d-sm">
+                &larr; Previous
+              </a>
+            {% endif %}
+            {% if page < total_pages %}
+              <a href="{{ url_for('history.index', page=page+1, status=status_filter, search=search) }}" class="btn-3d btn-3d-secondary btn-3d-sm">
+                Next &rarr;
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% else %}
+      <div style="padding: 48px; text-align: center; color: var(--text-muted);">
+        No history records match the current filter.
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/history.js') }}"></script>
+{% endblock %}

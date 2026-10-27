@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block page_title %}Playlists Repository{% endblock %}
+
+{% block content %}
+<div class="card-3d" style="margin-bottom: 24px;">
+  <div class="card-body-3d" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+    <!-- Search / Filter Form -->
+    <form method="GET" action="{{ url_for('playlists.list_view') }}" style="display: flex; gap: 12px; align-items: center; flex: 1; max-width: 500px;">
+      <input type="text" name="search" class="form-input" placeholder="Search playlist titles..." value="{{ search }}" style="width: 100%;">
+      <button type="submit" class="btn-3d btn-3d-secondary">Search</button>
+      {% if search %}
+        <a href="{{ url_for('playlists.list_view') }}" class="btn-3d btn-3d-secondary">Clear</a>
+      {% endif %}
+    </form>
+
+    <!-- Actions -->
+    <div style="display: flex; gap: 12px;">
+      <a href="{{ url_for('dashboard.index') }}" class="btn-3d btn-3d-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        <span>+ Import New Playlist</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Playlists Grid / Table -->
+<div class="card-3d">
+  <div class="card-header-3d">
+    <div class="card-title">
+      <span>All Playlists ({{ playlists|length }})</span>
+    </div>
+  </div>
+  <div class="card-body-3d" style="padding: 0;">
+    {% if playlists %}
+      <div class="table-responsive">
+        <table class="table-3d">
+          <thead>
+            <tr>
+              <th style="width: 80px;">Thumbnail</th>
+              <th>Playlist Title & Details</th>
+              <th>Source</th>
+              <th>Total Items</th>
+              <th>Import Date</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for pl in playlists %}
+              <tr>
+                <td>
+                  <img src="{{ pl.thumbnail_url or '/static/images/placeholder-thumbnail.svg' }}" alt="Playlist Thumbnail" class="table-thumb">
+                </td>
+                <td>
+                  <div style="font-weight: 700; color: var(--color-black); font-size: 0.95rem;">
+                    <a href="{{ url_for('playlists.explorer_view', playlist_id=pl.id) }}" style="color: inherit; text-decoration: none;">
+                      {{ pl.title }}
+                    </a>
+                  </div>
+                  {% if pl.description %}
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); max-width: 500px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                      {{ pl.description }}
+                    </div>
+                  {% endif %}
+                </td>
+                <td>
+                  <span class="badge-status queued" style="font-size: 0.72rem;">{{ pl.source_type|upper }}</span>
+                </td>
+                <td>
+                  <strong style="font-size: 1rem;">{{ pl.item_count }}</strong> items
+                </td>
+                <td style="font-size: 0.82rem; color: var(--text-muted);">
+                  {{ pl.created_at.strftime('%Y-%m-%d %H:%M') }}
+                </td>
+                <td style="text-align: right;">
+                  <div style="display: inline-flex; gap: 8px;">
+                    <a href="{{ url_for('playlists.explorer_view', playlist_id=pl.id) }}" class="btn-3d btn-3d-primary btn-3d-sm">
+                      Open Explorer
+                    </a>
+                    <button class="btn-3d btn-3d-secondary btn-3d-sm btn-delete-playlist" data-playlist-id="{{ pl.id }}">
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div style="padding: 48px; text-align: center; color: var(--text-muted);">
+        <p style="font-size: 1.05rem; font-weight: 700; color: var(--color-black); margin-bottom: 8px;">No playlists in your library yet</p>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 18px;">Paste any public YouTube playlist link on the Dashboard to fetch videos and download locally.</p>
+        <a href="{{ url_for('dashboard.index') }}" class="btn-3d btn-3d-primary">+ Import YouTube Playlist</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Handle Delete Playlist Metadata
+  document.querySelectorAll(".btn-delete-playlist").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const id = btn.getAttribute("data-playlist-id");
+      if (!confirm("Remove playlist metadata? Completed downloads and job history will NOT be deleted.")) {
+        return;
+      }
+      try {
+        btn.disabled = true;
+        const res = await fetch(`/api/playlists/${id}`, { method: "DELETE" });
+        const data = await res.json();
+        if (data.success) {
+          Notifications.success(data.message);
+          setTimeout(() => window.location.reload(), 600);
+        } else {
+          Notifications.error(data.error);
+        }
+      } catch (e) {
+        Notifications.error("Error deleting playlist.");
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  });
+});
+</script>
+{% endblock %}

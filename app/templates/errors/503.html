@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block page_title %}503 — Service Unavailable{% endblock %}
+
+{% block content %}
+<div class="card-3d" style="max-width: 600px; margin: 40px auto; text-align: center; padding: 48px 24px;">
+  <div style="font-size: 4rem; font-weight: 900; color: var(--color-red); line-height: 1; margin-bottom: 16px;">
+    503
+  </div>
+  <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--color-black); margin-bottom: 12px;">
+    Service Temporarily Unavailable
+  </h2>
+  <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 24px;">
+    The requested service is momentarily unavailable. Please check your system configuration.
+  </p>
+  <a href="{{ url_for('dashboard.index') }}" class="btn-3d btn-3d-primary">
+    &larr; Return to Dashboard
+  </a>
+</div>
+{% endblock %}

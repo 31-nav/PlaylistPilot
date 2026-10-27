@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block page_title %}About PlaylistPilot{% endblock %}
+
+{% block content %}
+<div class="card-3d" style="margin-bottom: 28px;">
+  <div class="card-body-3d" style="padding: 32px;">
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+      <div class="brand-icon-3d" style="width: 48px; height: 48px;">
+        <svg viewBox="0 0 24 24" style="width: 28px; height: 28px; fill: #FFFFFF;">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+      </div>
+      <div>
+        <h2 style="font-size: 1.6rem; font-weight: 800; color: var(--color-black); line-height: 1.2;">
+          PlaylistPilot — Smart Playlist & Batch Job Manager
+        </h2>
+        <div style="font-size: 0.95rem; color: var(--color-red); font-weight: 700;">
+          Your Playlist. Your Queue. Your Control.
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
+      <strong>PlaylistPilot</strong> is an MCA-level Python software engineering project designed to solve the challenges of managing, queueing, and processing large educational playlists (100+ videos). It combines a robust local-first architecture, an ACID-compliant SQLite datastore, a dedicated single-worker queue engine, and deterministic crash recovery mechanisms.
+    </p>
+
+    <!-- Key Architecture Pillars -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 32px;">
+      <div style="padding: 20px; border: 1px solid var(--border-medium); border-radius: var(--radius-md); background-color: var(--color-gray-surface);">
+        <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-black); margin-bottom: 8px;">1. Persistent Queue Engine</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+          A dedicated background worker thread processes items sequentially using FIFO and priority ordering. Urgent jobs can be prioritized to the front of the waiting queue without disrupting the active job.
+        </p>
+      </div>
+
+      <div style="padding: 20px; border: 1px solid var(--border-medium); border-radius: var(--radius-md); background-color: var(--color-gray-surface);">
+        <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-black); margin-bottom: 8px;">2. Fault & Restart Recovery</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+          On application startup or sudden power loss, orphaned active jobs are safely inspected, preserved if completed, or marked as interrupted/requeued without repeating completed work.
+        </p>
+      </div>
+
+      <div style="padding: 20px; border: 1px solid var(--border-medium); border-radius: var(--radius-md); background-color: var(--color-gray-surface);">
+        <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-black); margin-bottom: 8px;">3. Multi-Resolution Media Engine</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+          Powered by yt-dlp and FFmpeg, allowing users to choose video resolutions (1080p, 720p, 480p, 360p) or extract clean MP3 audio directly to custom local disk folders.
+        </p>
+      </div>
+    </div>
+
+    <!-- Tech Stack Summary -->
+    <div style="margin-bottom: 28px;">
+      <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-black); margin-bottom: 12px;">Technology Stack</h3>
+      <ul style="list-style-type: square; padding-left: 24px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;">
+        <li><strong>Backend:</strong> Python 3.11+, Flask Application Factory, SQLAlchemy ORM, SQLite datastore.</li>
+        <li><strong>Media Engine:</strong> yt-dlp & FFmpeg for high-speed multi-format stream extraction and local storage.</li>
+        <li><strong>Concurrency:</strong> Standard library <code>threading.Thread</code> with <code>threading.Lock</code> and <code>threading.Event</code>.</li>
+        <li><strong>Frontend:</strong> Semantic HTML5, Vanilla CSS with custom 3D depth system, Vanilla JavaScript Fetch API.</li>
+        <li><strong>Visual Identity:</strong> Strict four-color palette: Black (#111111), Red (#E62117), Gray (#808080), White (#FFFFFF).</li>
+        <li><strong>Test Suite:</strong> 38 automated test cases covering models, queue, API, storage, and worker services.</li>
+      </ul>
+    </div>
+
+    <!-- Production Notice -->
+    <div style="padding: 16px 20px; background-color: var(--color-black); color: #FFFFFF; border-radius: var(--radius-md); font-size: 0.85rem; line-height: 1.6;">
+      <strong style="color: var(--color-red);">Production & Deployment Note:</strong><br>
+      PlaylistPilot is designed to run self-hosted on any system or web service. All downloads and state transitions persist in an ACID-compliant local database, giving users full ownership and offline access to their media library.
+    </div>
+  </div>
+</div>
+{% endblock %}

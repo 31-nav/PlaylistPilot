@@ -1,0 +1,121 @@
+/* ==========================================================================
+   PLAYLISTPILOT RESPONSIVE BREAKPOINTS & MOBILE DESIGN SYSTEM
+   Optimized for Desktop, Tablets, and Smartphones (iOS & Android)
+   ========================================================================== */
+
+/* Hide mobile bottom dock by default on desktop */
+.mobile-bottom-nav {
+  display: none;
+}
+
+/* Tablet & Mid-Size Screens (<= 1024px) */
+@media (max-width: 1024px) {
+  .main-viewport {
+    padding: 24px 16px 80px 16px;
+  }
+}
+
+/* Mobile Screens (<= 768px) */
+@media (max-width: 768px) {
+  .navbar-inner {
+    height: 56px;
+    padding: 0 14px;
+  }
+
+  .nav-menu {
+    display: none; /* Handled smoothly by bottom mobile dock */
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .header-status-pill {
+    padding: 3px 8px;
+    font-size: 0.72rem;
+  }
+
+  .main-viewport {
+    padding: 16px 12px 90px 12px;
+  }
+
+  .form-input,
+  .form-select {
+    font-size: 16px !important; /* Prevents auto-zoom in mobile Safari */
+    height: 46px;
+  }
+
+  .card-header-3d {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .card-body-3d {
+    padding: 16px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  .public-footer {
+    padding: 16px 16px 85px 16px;
+    font-size: 0.75rem;
+  }
+
+  /* Mobile Bottom Dock */
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--color-black);
+    border-top: 1px solid var(--border-dark);
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.4);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray-light);
+    text-decoration: none;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    gap: 2px;
+    min-width: 60px;
+    padding: 6px 4px;
+    transition: color var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-nav-item svg {
+    stroke: var(--color-gray-light);
+    transition: stroke var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .mobile-nav-item.active {
+    color: var(--color-white);
+  }
+
+  .mobile-nav-item.active svg {
+    stroke: var(--color-red);
+    transform: translateY(-1px);
+  }
+
+  .mobile-nav-item:active {
+    transform: scale(0.95);
+  }
+}

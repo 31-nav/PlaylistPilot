@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block page_title %}Application Settings & System Configuration{% endblock %}
+
+{% block content %}
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 28px;">
+  <!-- Settings Form Card -->
+  <div class="card-3d">
+    <div class="card-header-3d">
+      <div class="card-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>Configuration Parameters</span>
+      </div>
+    </div>
+    <div class="card-body-3d">
+      <form method="POST" action="{{ url_for('settings.index') }}" id="settings-form">
+        <!-- Local Download Path Selection -->
+        <div class="form-group" style="margin-bottom: 22px;">
+          <label class="form-label" for="download_directory">
+            Local System Download Path
+          </label>
+          <div class="input-with-button">
+            <input type="text" id="download_directory" name="download_directory" class="form-input" value="{{ download_dir }}" placeholder="C:\Users\...\Downloads" autocomplete="off">
+            <button type="button" id="btn-verify-path" class="btn-3d btn-3d-secondary">
+              Verify
+            </button>
+          </div>
+          <div id="path-verification-status" style="font-size: 0.78rem; margin-top: 6px; display: none;"></div>
+
+          <!-- Quick-Pick Suggested Folders -->
+          <div style="margin-top: 10px;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">
+              Quick-Pick System Folders:
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              {% for s in suggested_paths %}
+                <button type="button" class="btn-3d btn-3d-secondary btn-3d-sm btn-quick-path" data-path="{{ s.path }}">
+                  {{ s.label }}
+                </button>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-light); margin-bottom: 20px;">
+
+        <!-- YouTube Data API Key -->
+        <div class="form-group">
+          <label class="form-label" for="youtube_api_key">
+            YouTube Data API v3 Key (Optional)
+          </label>
+          <input type="password" id="youtube_api_key" name="youtube_api_key" class="form-input" placeholder="{% if has_api_key %}{{ masked_key }}{% else %}Enter AIzaSy... key{% endif %}" autocomplete="off">
+          <small style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">
+            Current status: <strong>{{ masked_key }}</strong>. Stored safely in backend memory.
+          </small>
+        </div>
+
+        <!-- Automatic Retry Setting -->
+        <div class="form-group" style="flex-direction: row; align-items: center; justify-content: space-between; padding: 10px 0;">
+          <div>
+            <label class="form-label" for="auto_retry" style="margin-bottom: 2px;">Automatic Retry on Network Restoration</label>
+            <div style="font-size: 0.78rem; color: var(--text-secondary);">Automatically resume interrupted jobs when connection recovers.</div>
+          </div>
+          <input type="checkbox" id="auto_retry" name="auto_retry" style="width: 20px; height: 20px; accent-color: var(--color-red);" {% if auto_retry %}checked{% endif %}>
+        </div>
+
+        <!-- Max Retries -->
+        <div class="form-group">
+          <label class="form-label" for="max_retries">Max Retries per Job</label>
+          <input type="number" id="max_retries" name="max_retries" class="form-input" min="1" max="10" value="{{ max_retries }}">
+        </div>
+
+        <!-- Poll Interval -->
+        <div class="form-group">
+          <label class="form-label" for="queue_poll_interval">Queue Worker Check Interval (seconds)</label>
+          <input type="number" step="0.5" id="queue_poll_interval" name="queue_poll_interval" class="form-input" min="0.5" max="10" value="{{ poll_interval }}">
+        </div>
+
+        <!-- Default Download Quality -->
+        <div class="form-group">
+          <label class="form-label" for="default_quality">Default Download Resolution / Format</label>
+          <select id="default_quality" name="default_quality" class="form-input" style="font-weight: 600;">
+            <option value="best" {% if default_quality == 'best' %}selected{% endif %}>🌟 Best Available (1080p+)</option>
+            <option value="1080p" {% if default_quality == '1080p' %}selected{% endif %}>1080p Full HD</option>
+            <option value="720p" {% if default_quality == '720p' %}selected{% endif %}>720p HD</option>
+            <option value="480p" {% if default_quality == '480p' %}selected{% endif %}>480p Standard</option>
+            <option value="360p" {% if default_quality == '360p' %}selected{% endif %}>360p Data Saver</option>
+            <option value="audio_mp3" {% if default_quality == 'audio_mp3' %}selected{% endif %}>🎵 Audio Only (MP3)</option>
+          </select>
+          <small style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">
+            Preferred quality pre-selected when queueing YouTube videos.
+          </small>
+        </div>
+
+        <button type="submit" class="btn-3d btn-3d-primary" style="width: 100%; margin-top: 10px;">
+          Save Settings & Storage Path
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- System Health & Integrations Status Card -->
+  <div class="card-3d">
+    <div class="card-header-3d">
+      <div class="card-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        <span>Environment & Integrations Status</span>
+      </div>
+    </div>
+    <div class="card-body-3d">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Active Storage Status -->
+        <div style="padding: 16px; background-color: var(--color-gray-surface); border-radius: var(--radius-md); border: 1px solid var(--border-medium);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <strong style="color: var(--color-black);">Current Download Directory</strong>
+            <span class="badge-status queued" style="font-size: 0.7rem;">{{ disk_info.free_formatted }} Free</span>
+          </div>
+          <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-primary); word-break: break-all; background-color: #FFFFFF; padding: 8px 10px; border-radius: 4px; border: 1px solid var(--border-light); margin-bottom: 8px;">
+            {{ download_dir }}
+          </div>
+          <div style="font-size: 0.78rem; color: var(--text-secondary);">
+            Disk usage: <strong>{{ disk_info.used_percent }}%</strong> used (Total Capacity: {{ disk_info.total_formatted }})
+          </div>
+        </div>
+
+        <!-- Demonstration Mode Status -->
+        <div style="padding: 14px; background-color: var(--color-gray-surface); border-radius: var(--radius-md); border: 1px solid var(--border-medium);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <strong style="color: var(--color-black);">Demonstration Mode</strong>
+            <span class="badge-status downloading" style="font-size: 0.7rem; animation: none;">Active & Ready</span>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">
+            Works 100% offline without API keys or internet connection.
+          </div>
+        </div>
+
+        <!-- FFmpeg Status -->
+        <div style="padding: 14px; background-color: var(--color-gray-surface); border-radius: var(--radius-md); border: 1px solid var(--border-medium);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <strong style="color: var(--color-black);">FFmpeg Media Processing</strong>
+            {% if ffmpeg_available %}
+              <span class="badge-status completed" style="font-size: 0.7rem;">Detected in PATH</span>
+            {% else %}
+              <span class="badge-status failed" style="font-size: 0.7rem;">Not Installed</span>
+            {% endif %}
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">
+            {% if ffmpeg_available %}
+              Local audio extraction and video format conversion are enabled.
+            {% else %}
+              Install FFmpeg via <code>winget install Gyan.FFmpeg</code> or <code>brew install ffmpeg</code> to enable local media conversion.
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const dirInput = document.getElementById("download_directory");
+  const verifyBtn = document.getElementById("btn-verify-path");
+  const statusDiv = document.getElementById("path-verification-status");
+
+  async function verifyPath(path) {
+    if (!path.trim()) {
+      statusDiv.style.display = "block";
+      statusDiv.style.color = "var(--color-red)";
+      statusDiv.textContent = "Path cannot be empty.";
+      return;
+    }
+
+    try {
+      verifyBtn.disabled = true;
+      verifyBtn.textContent = "Checking...";
+      statusDiv.style.display = "block";
+      statusDiv.style.color = "var(--text-muted)";
+      statusDiv.textContent = "Testing path permissions and storage...";
+
+      const res = await fetch("/api/storage/validate-path", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ path: path.trim() })
+      });
+      const data = await res.json();
+
+      if (data.valid) {
+        statusDiv.style.color = "var(--color-black)";
+        statusDiv.innerHTML = `<strong>Valid & Writable:</strong> Available free space: <strong>${data.free_formatted}</strong> (${data.free_mb} MB)`;
+        Notifications.success(`Directory verified: ${data.free_formatted} free space available.`);
+      } else {
+        statusDiv.style.color = "var(--color-red)";
+        statusDiv.textContent = data.error || "Cannot use this directory.";
+        Notifications.error(data.error || "Invalid path.");
+      }
+    } catch (e) {
+      statusDiv.style.color = "var(--color-red)";
+      statusDiv.textContent = "Error communicating with server.";
+    } finally {
+      verifyBtn.disabled = false;
+      verifyBtn.textContent = "Verify";
+    }
+  }
+
+  if (verifyBtn) {
+    verifyBtn.addEventListener("click", () => verifyPath(dirInput.value));
+  }
+
+  // Quick-Pick Buttons
+  document.querySelectorAll(".btn-quick-path").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const p = btn.getAttribute("data-path");
+      if (p && dirInput) {
+        dirInput.value = p;
+        verifyPath(p);
+      }
+    });
+  });
+});
+</script>
+{% endblock %}
